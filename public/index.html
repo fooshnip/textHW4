@@ -6,9 +6,9 @@
 <title>Movie Storyboarding</title>
 <style>
 
-#chart rect {
+/*#chart rect {
   fill: steelblue;
-}
+}*/
 
 #chart text {
   fill: black;
@@ -75,9 +75,11 @@ bar.append("rect")
 	.attr("transform", function(d, i) {return "translate("+0 +","+ x(d.name)*10+ ")"; })
 	.attr("width", 10)
     .attr("height", barHeight-1)
+    .attr("class",function(d){return d.name})
 	.transition()
 	.duration(2000)
 	.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ x(d.name)*10 + ")"; })
+	.style("fill",function(d){if(d.name=='WOODY'||d.name=='BUZZ'){return "steelblue";}else if(d.name=='SID'){return "red";}else{return "grey";}})
 	.attr("rx",5)
 	.attr("ry",5)
 	.style("fill-opacity",.4);
@@ -96,7 +98,7 @@ chart2 = d3.select("svg")
 	.attr("y",function(d,i){return i*10+19})
 	.text(function(d){return d})
 	.style("font-size","10px")
-	.style("color","black")
+	.style("fill",function(d){if(d=='WOODY'||d=='BUZZ'){return "steelblue";}else if(d=='SID'){return "red";}else{return "grey";}})
 	.style("font-family","Open Sans");
 
 </script>
