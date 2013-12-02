@@ -32,6 +32,7 @@ body {
 </head>
 <center><h2 align="center">Toy Story Storyboard</h2>
 	<p style="font-size:16px">The following graphic was created in D3 and data parsed from a raw movie script of Toy Story, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  Mouseover the chart to see the character's quotes over time.</p>
+	<br>
 <center><div id="chart" style="margin-left:-130px"></div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
@@ -67,12 +68,18 @@ var chart = d3.select("#chart")
 
 var bar = chart.selectAll("g")
     .data(data)
-  .enter().append("g")
-    .attr("transform", function(d, i) {return "translate("+d.index +","+ x(d.name)*10 + ")"; });
+  .enter().append("g");
 
 bar.append("rect")
-    .attr("width", 1)
-    .attr("height", barHeight-1);
+	.attr("transform", function(d, i) {return "translate("+0 +","+ x(d.name)*10+ ")"; })
+	.attr("width", 10)
+    .attr("height", barHeight-1)
+	.transition()
+	.duration(2000)
+	.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ x(d.name)*10 + ")"; })
+	.attr("rx",5)
+	.attr("ry",5)
+	.style("fill-opacity",.4);
 
 bar.append("title")
     .text(function(d){return d.quote});
