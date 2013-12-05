@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
-<link href='/dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
 <link href='lavish-bootstrap.css' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400' rel='stylesheet' type='text/css'>
-<script src='/dist/js/bootstrap.min.js'></script>
 <title>Movie Storyboarding</title>
 <style>
 
@@ -25,7 +23,7 @@ p,h1,h2,h3,h4,h5,h6,label, a, text {
   }
 body {
 	background-color: white;
-	background-image:url('toy_story.jpg');
+	background-image:url('nemo.jpg');
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: 20%;
@@ -36,14 +34,14 @@ body {
 }
 </style>
 </head>
-<center><h2 align="center">Toy Story Storyboard</h2>
-	<a href="findingnemo.html">To Finding Nemo!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="up.html">Head Over to Up!</a>
-	<p style="font-size:16px">The following graphic was created in D3 and data parsed from a raw movie script of Toy Story, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  Mouseover the chart to see the character's quotes over time.</p>
+<center><h2 align="center">Finding Nemo Storyboard</h2>
+	<a href="index.html">Back to Toy Story!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="up.html">Onward to Up!</a>
+	<p style="font-size:16px">The following graphic was created in D3 and data parsed from a raw movie script of Finding Nemo, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  Mouseover the chart to see the character's quotes over time.</p>
 	<br>
 </div class="speekdiv"></div>
 <center><div id="chart" style="margin-left:-130px"></div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="data1.js"></script>
+<script src="data2.js"></script>
 <script>
 
 var width = 820,
@@ -85,7 +83,7 @@ function storyboard(data,names){
 	    .attr("class",function(d){return "a"+d.index+"a"})
 	    .attr("rx",5)
 		.attr("ry",5)
-		.style("fill", "lightgrey")
+		.style("fill","lightgrey")
 		.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ x(d.name)*10 + ")"; });
 
 	bar.append("rect")
@@ -103,7 +101,7 @@ function storyboard(data,names){
 		.duration(2000)
 		.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ x(d.name)*10 + ")"; })
 		.style("fill",function(d){if(d.name=='WOODY'||d.name=='BUZZ'){return "steelblue";}else if(d.name=='SID'){return "red";}else{return "grey";}})
-		.style("stroke","gold")
+		.style("fill","gold")
 		.attr("rx",5)
 		.attr("ry",5)
 		.style("fill-opacity",.4)
@@ -121,7 +119,7 @@ function storyboard(data,names){
 									.style("stroke","transparent");
 
 									 // bar.append("svg:image")
-									 //  .attr("class","img-rounded faces")
+									 //  .attr("class","faces")
 								  //     .attr("xlink:href", "./pixtures/"+d.name.replace(":","")+".jpg")
 								  //     .attr("x",600)
 								  //     .attr("y",125)
