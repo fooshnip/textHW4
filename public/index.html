@@ -98,7 +98,7 @@ function storyboard(data,names){
 		.style("fill",function(d){if(d.name=='WOODY'||d.name=='BUZZ'){return "steelblue";}else if(d.name=='SID'){return "red";}else{return "grey";}})
 		.transition()
 		.delay(function(d, i) {
-		    return i * 1000;
+		    return i * 400;
 				})
 		.duration(2000)
 		.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ x(d.name)*10 + ")"; })
