@@ -20,7 +20,7 @@
 rect:hover {
 	stroke: black;
 }
-p,h1,h2,h3,h4,h5,h6,label, a, text {
+p,h1,h2,h3,h4,h5,h6,label, a {
     font-family: "Yanone Kaffeesatz";
   }
 body {
@@ -95,7 +95,7 @@ function storyboard(data,names){
 	    .attr("class",function(d){return "a"+d.index+"a"})
 	    .attr("rx",5)
 		.attr("ry",5)
-		.style("fill","grey")
+		.style("fill","transparent")
 		.transition()
 		.delay(function(d, i) {
 		    return i * 400;
@@ -113,7 +113,7 @@ function storyboard(data,names){
 									.attr("x",780)
 									.text(d.quote)
 									.style("font-size","14px")
-									.style("font-family","Open Sans")
+									.style("font-family","sans-serif")
 									.attr("y",10);
 
 									bar.select("rect")

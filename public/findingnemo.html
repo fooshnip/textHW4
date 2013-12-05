@@ -25,7 +25,7 @@ body {
 	background-color: white;
 	background-image:url('nemo.jpg');
 	background-repeat: no-repeat;
-	background-position: right;
+	background-position: left;
 	background-size: 20%;
 	zoom: 1.1; -moz-transform: scale(1.1); -moz-transform-origin: 0 0;
 }
@@ -44,7 +44,7 @@ body {
 <script src="data2.js"></script>
 <script>
 
-var width = 820,
+var width = 1280,
     barHeight = 10;
 
 var newi=[];
@@ -93,7 +93,7 @@ function storyboard(data,names){
 	    .attr("class",function(d){return "a"+d.index+"a"})
 	    .attr("rx",5)
 		.attr("ry",5)
-		.style("fill",function(d){if(d.name=='WOODY'||d.name=='BUZZ'){return "steelblue";}else if(d.name=='SID'){return "red";}else{return "grey";}})
+		.style("fill","transparent")
 		.transition()
 		.delay(function(d, i) {
 		    return i * 400;
@@ -112,7 +112,7 @@ function storyboard(data,names){
 									.attr("x",780)
 									.text(d.quote)
 									.style("font-size","14px")
-									.style("font-family","Open Sans")
+									.style("font-family","sans-serif")
 									.attr("y",10);
 
 									bar.select("rect")
