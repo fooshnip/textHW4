@@ -1,152 +1,78 @@
 <!DOCTYPE html>
-<head>
-<meta charset="utf-8">
-<link href='/dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
-<link href='lavish-bootstrap.css' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400' rel='stylesheet' type='text/css'>
-<script src='/dist/js/bootstrap.min.js'></script>
-<title>Movie Storyboarding</title>
-<style>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-/*#chart rect {
-  fill: steelblue;
-}*/
+    <title>Carousel Template for Bootstrap</title>
 
-#chart text {
-  fill: black;
-  font: 10px sans-serif;
-  text-anchor: end;
-}
-rect:hover {
-	stroke: black;
-}
-p,h1,h2,h3,h4,h5,h6,label, a {
-    font-family: "Yanone Kaffeesatz";
-  }
-body {
-	background-color: white;
-	background-image:url('toy_story.jpg');
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: 20%;
-	zoom: 1.1; -moz-transform: scale(1.1); -moz-transform-origin: 0 0;
-}
-.dialogue {
-	shape-rendering: crispEdges;
-}
-</style>
-</head>
-<center><h2 align="center">Toy Story Storyboard</h2>
-	<a href="findingnemo.html">To Finding Nemo!</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="up.html">Head Over to Up!</a>
-	<p style="font-size:16px">The following graphic was created in D3 and data parsed from a raw movie script of Toy Story, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  Mouseover the chart to see the character's quotes over time.</p>
-	<br>
-</div class="speekdiv"></div>
-<center><div id="chart" style="margin-left:-130px"></div>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="data1.js"></script>
-<script>
+    <!-- Bootstrap core CSS -->
+    <link href="/dist/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      /* Effect 15: scale down, reveal */
+    img:hover {
+      border:15px solid black;
+    }
+    </style>
+  </head>
 
-var width = 820,
-    barHeight = 10;
 
-var newi=[];
-for(i=1;i<=44;i++){
-	newi.push(i);
-}
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
 
-var x = d3.scale.ordinal()
-    .domain(names)
-    .range(newi);
-var padding = 180;
+    <div class="container marketing">
 
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
+            <!-- START THE FEATURETTES -->
 
-storyboard(data,names);
 
-function storyboard(data,names){
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Text Analytics Homework 4. <span class="text-muted">Pixar Films.</span></h2>
+          <p class="lead">For our final assignment, we parsed and analyzed three movie scripts, looking at dialogue flow, character similarity, and movie sentiment and story arcs.</p>
+        </div>
+      </div>
 
-	var chart = d3.select("#chart")
-		.append("svg")
-	    .attr("width", width+padding)
-	    .attr("height", 800)
-	    .append("g")
-	     .attr("transform", "translate(" + padding + "," + 0 + ")");;
+      <hr class="featurette-divider">
 
-	var bar = chart.selectAll("g")
-	    .data(data)
-	  .enter().append("g");
+      <!-- /END THE FEATURETTES -->
 
-	bar.append("rect")
-		.attr("transform", function(d, i) {return "translate("+0 +","+ x(d.name)*10+ ")"; })
-		.attr("width", 10)
-	    .attr("height", barHeight-1)
-	    .attr("class",function(d){return "a"+d.index+"a"})
-	    .attr("rx",5)
-		.attr("ry",5)
-		.style("fill", "lightgrey")
-		.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ x(d.name)*10 + ")"; });
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <a href="toystory.html"><img class="img-circle movie" src="toy_story.jpg" alt="Toy Story" style="height:250px;width:210px" align="center"></a>
+          <h2>Toy Story</h2>
+          <p>The earliest Pixar film we looked at, click through to see Toy Story's structure, the similarity of Woody and Buzz, and the movie's emotional progression.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <a href="findingnemo.html"><img class="img-circle movie" src="nemo.jpg" alt="Finding Nemo" style="height:220px;width:250px;margin-top:30px"></a>
+          <h2>Finding Nemo</h2>
+          <p>Per Metacritic, the most critically acclaimed of the bunch (by a point!), click through to see the likeness of Marlin and Nemo, the movie's storyboard, and a sentiment analysis of the movie.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <a href="toystory.html"><img class="img-circle movie" src="up.jpg" alt="Up!" style="height:220px;width:250px;margin-top:30px"></a>
+          <h2>Up!</h2>
+          <p>The newest, and perhaps most emotionally charged movie of the group, explore the connection between Russel and Carl, replay character interaction, and see if the emotional flow can be identified algorithmically.</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
 
-	bar.append("rect")
-		.attr("transform", function(d, i) {return "translate("+0 +","+ x(d.name)*10+ ")"; })
-		.attr("width", 10)
-	    .attr("height", barHeight-1)
-	    .attr("class",function(d){return "a"+d.index+"a"})
-	    .attr("rx",5)
-		.attr("ry",5)
-		.style("fill","transparent")
-		.transition()
-		.delay(function(d, i) {
-		    return i * 400;
-				})
-		.duration(2000)
-		.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ x(d.name)*10 + ")"; })
-		.style("fill","gold")
-		.attr("rx",5)
-		.attr("ry",5)
-		.style("fill-opacity",.4)
-		.each("end", function(d,i) {d3.selectAll(".dialogue").remove();
-									d3.selectAll(".faces").remove();
-									bar.append("text")
-									.attr("class","dialogue")
-									.attr("x",780)
-									.text(d.quote)
-									.style("font-size","14px")
-									.style("font-family","sans-serif")
-									.attr("y",10);
+      <br>
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-left">All rights to original works belong to Pixar.</p>
+        <p class="pull-right">Adam Evans &middot; Joseph Riley &middot; Austin Schleder &middot; Colin Watts-Fitzgerald</p>
+      </footer>
 
-									bar.select("rect")
-									.style("stroke","transparent");
+    </div><!-- /.container -->
 
-									 // bar.append("svg:image")
-									 //  .attr("class","img-rounded faces")
-								  //     .attr("xlink:href", "./pixtures/"+d.name.replace(":","")+".jpg")
-								  //     .attr("x",600)
-								  //     .attr("y",125)
-								  //     .attr("rx",5)
-									 //  .attr("ry",5)
-								  //     .attr("width", 150)
-								  //     .attr("height", 150);
-									 });
 
-	bar.append("title")
-	    .text(function(d){return d.quote});
-
-	chart2 = d3.select("svg")
-				.data(data)
-			    .attr("transform", function(d, i) {return "translate("+d.index +","+ x(d.name)*10 + ")"; });
-
-	chart2.selectAll("text")
-		.data(names)
-		.enter().append("text")
-		.attr("x",180)
-		.attr("y",function(d,i){return i*10+19})
-		.text(function(d){return d})
-		.style("font-size","10px")
-		.style("fill",function(d){if(d=='WOODY'||d=='BUZZ'){return "steelblue";}else if(d=='SID'){return "red";}else{return "grey";}})
-		.style("font-family","Open Sans");
-
-}
-
-</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
