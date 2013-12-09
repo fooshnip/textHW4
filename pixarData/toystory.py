@@ -5,6 +5,7 @@ Created on Nov 30, 2013
 '''
 import nltk
 import re
+import csv
 from itertools import chain
 
 with open ("toyStory.txt", "r") as myfile:
@@ -37,10 +38,15 @@ for i in clean:
 index = range(1,908)
 
 toystory = [{'index':a,'name':b, 'quote':c} for a,b,c in zip(index, names, cleanconv)]
-print toystory
+#print toystory
+
+with open ("toyStory.csv", "wb") as myfile:
+	writer = csv.writer(myfile, delimiter='\t')
+	for i in names:
+    	writer.writerow([index[i],names[i],cleanconv[i]])
 
 unique_names = set(d['name'] for d in toystory)
-print unique_names
+#print unique_names
 #for value in unique_names:    
 #    print value,"\n"," ".join([i['quote'] for i in toystory if i['name']==value])
 

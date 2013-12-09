@@ -23,7 +23,7 @@ function storyboard(data,names){
 	var chart = d3.select("#chart")
 		.append("svg")
 	    .attr("width", width+padding)
-	    .attr("height", names.length*10)
+	    .attr("height", (names.length+1)*10)
 	    .append("g")
 	     .attr("transform", "translate(" + padding + "," + 0 + ")");
 
@@ -76,7 +76,8 @@ function animate(){
 	    .data(data);
 
 	bar.append("rect")
-		.attr("transform", function(d, i) {return "translate("+0 +","+ x(d.name)*10+ ")"; })
+		.attr("transform", function(d, i) {return "translate("+data.length +","+ x(d.name)*10+ ")"; })
+		//.attr("transform", function(d, i) {return "translate("+d.index/1.15 +","+ 800+ ")"; })
 		.attr("width", 0)
 	    .attr("height", barHeight-1)
 	    .attr("class","animation")
