@@ -58,7 +58,7 @@
           <div class="row">
           <h3  class="col-lg-2">The Storyboard</h3>
           <div class="col-lg-6">
-          <p style="font-size:16px; text-indent:40px">The following graphic was created in D3 and data parsed from a raw movie script of Finding Nemo, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  It shows the actual flow of dialogue in the movie over time.  The buttons below will trigger an animation that will play through the entire script!  Mouseover the chart to see the character's quotes over time.  ***Apologies for the current overflow on this one!! Just keep scrolling..just keep scrolling...just keep scrolling...</p>
+          <p style="font-size:16px; text-indent:40px">The following graphic was created in D3 and data parsed from a raw movie script of Finding Nemo, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  It shows the actual flow of dialogue in the movie over time.  The buttons below will trigger an animation that will play through the entire script!  Mouseover the chart to see the character's quotes over time.  ***Apologies for the current overflow on this one!! Just keep scrolling...just keep scrolling...just keep scrolling...</p>
         </div>
           <h3  class="col-lg-1">Talk to me, fishes</h3>
           <div class="col-lg-3" id="diadiv"></div>
@@ -95,12 +95,11 @@
           <div class="row">
           <h3  class="col-lg-2">The Story Arc</h3>
           <div class="col-lg-10">
-          <p style="font-size:16px; text-indent:40px">Lastly, we utilized sentiment analysis at the word level to try and get a feel for the moving flow of emotion during the movie.</p>
+          <p style="font-size:16px; text-indent:40px">Lastly, we utilized sentiment analysis at the word level to try and get a feel for the moving flow of emotion during the movie.  We removed stop words, stemmed words to normalize the language, and we also removed punctuation.  We ran a moving average comparing movie text against a positive and negative sentiment word list.  Lastly, we applied a smoother to create a story arc to best capture overall trends in the movie.</p>
         </div>
           <div class="col-lg-12">
-          <img src="">
+          <center><img src="nemoSentiment.jpg"></center>
         </div>
-          <p class="col-lg-10 col-lg-offset-2">Some of the key takeaways from this.</p>
         </div>
 
 
