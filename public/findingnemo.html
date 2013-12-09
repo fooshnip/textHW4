@@ -1,119 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link href='/dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
-    <link href='lavish-bootstrap.css' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400' rel='stylesheet' type='text/css'>
-    <script src='/dist/js/bootstrap.min.js'></script>
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <title>Movie Storyboarding</title>
-    <style>
+<head>
+  <meta charset="utf-8">
+  <link href='/dist/css/bootstrap.css' rel='stylesheet' type='text/css'>
+  <link href='lavish-bootstrap.css' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400' rel='stylesheet' type='text/css'>
+  <script src='/dist/js/bootstrap.min.js'></script>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <title>Movie Storyboarding</title>
+  <style>
 
     /*#chart rect {
       fill: steelblue;
-    }*/
+      }*/
 
-    #chart text {
-      fill: black;
-      font: 10px sans-serif;
-      text-anchor: end;
-    }
-    rect:hover {
-      stroke: black;
-    }
-    p,h1,h2,h3,h4,h5,h6,label, a {
+      #chart text {
+        fill: black;
+        font: 10px sans-serif;
+        text-anchor: end;
+      }
+      rect:hover {
+        stroke: black;
+      }
+      p,h1,h2,h3,h4,h5,h6,label, a {
         font-family: "Yanone Kaffeesatz";
       }
-    .dialogue {
-      shape-rendering: crispEdges;
-    }
-    body {
-      background-color: white;
-    }
-    p {
-      font-size:16px;
-      overflow: hidden;
-      o-text-overflow: clip;
-      text-overflow: clip;
-    }
-    </style>
-  </head>
+      .dialogue {
+        shape-rendering: crispEdges;
+      }
+      body {
+        background-color: white;
+      }
+      p {
+        font-size:16px;
+        overflow: hidden;
+        o-text-overflow: clip;
+        text-overflow: clip;
+      }
+      </style>
+    </head>
 
-  <body>
+    <body>
 
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="index.html">Back to the Main Page</a></li>
-          <li><a href="toystory.html">Toy Story!</a></li>
-          <li><a href="up.html">Up!</a></li>
-        </ul>
-        <h3 class="text-muted">Finding Nemo</h3>
-      </div>
+      <div class="container">
+        <div class="header">
+          <ul class="nav nav-pills pull-right">
+            <li><a href="index.html">Back to the Main Page</a></li>
+            <li><a href="toystory.html">Toy Story!</a></li>
+            <li><a href="up.html">Up!</a></li>
+          </ul>
+          <h3 class="text-muted">Finding Nemo</h3>
+        </div>
 
-      <div class="row marketing">
-        <hr>
-        <div class="col-lg-12">
-          <div class="row">
-          <h3  class="col-lg-2">The Storyboard</h3>
-          <div class="col-lg-6">
-          <p style="font-size:16px; text-indent:40px">The following graphic was created in D3 and data parsed from a raw movie script of Finding Nemo, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  It shows the actual flow of dialogue in the movie over time.  The buttons below will trigger an animation that will play through the entire script!  Mouseover the chart to see the character's quotes over time.  ***Apologies for the current overflow on this one!! Just keep scrolling...just keep scrolling...just keep scrolling...</p>
-        </div>
-          <h3  class="col-lg-1">Talk to me, fishes</h3>
-          <div class="col-lg-3" id="diadiv"></div>
-        </div>
-          <center><a class="btn btn-success btn-large" id="play" style="margin-top:-20px"><i class="icon-white icon-play"></i> Play the Movie!</a>
-          <a class="btn btn-warning btn-large" id="stop" style="margin-top:-20px"><i class="icon-white icon-stop"></i> Stop the Animation!</a>
-          <div id="chart" style="margin-left:-130px; margin-top=-20px"></div></center>
-          <img src="nemo.jpg" style="margin-left:60px;margin-top:-220px;width:280px;height:220px">
-          <p class="col-lg-10 col-lg-offset-2">The X-axis represents the index in which the character spoke.  The circles are only sized for easier mouse-over functionality and size and overlap carry no particular importance (though overlap suggests a lot of activity in succession!).</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <hr>
-
-        <div class="col-lg-12">
-          <div class="row">
-          <h3  class="col-lg-2">The Neighborhood Map</h3>
-          <div class="col-lg-10">
-          <p style="font-size:16px; text-indent:40px">Using the raw text data as seen above, we also clustered characters based on similarity of words and language.  For comparisons, we utilized a metric called Simpson's distance to quantify the difference.  Using a technique called multi-dimensional scaling, we are able to project these distances onto a two-dimensional space.</p>
-        </div>
+        <div class="row marketing">
+          <hr>
           <div class="col-lg-12">
-          <img src="nemoCharMap.jpg">
-        </div>
-          <h4>Key Takeaways!</h4>
-          <p class="col-lg-10 col-lg-offset-2">The process grouped the main characters together, green circle, likely due to more frequent speaking parts and consistent use of similar proper names.  More interesting, the red circle represents characters that are more authoritative.  Their use of command-like language drew them closer together.</p>
-        </div>
-      </div>
-        <br>
-        <br>
-        <hr>
+            <div class="row">
+              <h3  class="col-lg-2">The Storyboard</h3>
+              <div class="col-lg-6">
+                <p style="font-size:16px; ">The following graphic was created in D3 and data parsed from a raw movie script of Finding Nemo, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  It shows the actual flow of dialogue in the movie over time.  The buttons below will trigger an animation that will play through the entire script!  Mouseover the chart to see the character's quotes over time.  ***Apologies for the current overflow on this one!! Just keep scrolling...just keep scrolling...just keep scrolling...</p>
+              </div>
+              <h3  class="col-lg-1">Talk to me, fishes</h3>
+              <div class="col-lg-3" id="diadiv"></div>
+            </div>
+            <center><a class="btn btn-success btn-large" id="play" style="margin-top:-20px"><i class="icon-white icon-play"></i> Play the Movie!</a>
+              <a class="btn btn-warning btn-large" id="stop" style="margin-top:-20px"><i class="icon-white icon-stop"></i> Stop the Animation!</a>
+              <div id="chart" style="margin-left:-130px; margin-top=-20px"></div></center>
+              <img src="nemo.jpg" style="margin-left:60px;margin-top:-220px;width:280px;height:220px">
+              <p class="col-lg-10 col-lg-offset-2">The X-axis represents the index in which the character spoke.  The circles are only sized for easier mouse-over functionality and size and overlap carry no particular importance (though overlap suggests a lot of activity in succession!).</p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <hr>
 
-        <div class="col-lg-12">
-          <div class="row">
-          <h3  class="col-lg-2">The Story Arc</h3>
-          <div class="col-lg-10">
-          <p style="font-size:16px; text-indent:40px">Lastly, we utilized sentiment analysis at the word level to try and get a feel for the moving flow of emotion during the movie.  We removed stop words, stemmed words to normalize the language, and we also removed punctuation.  We ran a moving average comparing movie text against a positive and negative sentiment word list.  Lastly, we applied a smoother to create a story arc to best capture overall trends in the movie.</p>
-        </div>
-          <div class="col-lg-12">
-          <center><img src="nemoSentiment.jpg"></center>
-        </div>
-        </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <h3  class="col-lg-2">The Neighborhood Map</h3>
+                <div class="col-lg-10">
+                  <p style="font-size:16px; ">Using the raw text pulled from the scripts, we clustered the characters based on the type/content of language that they used throughout the movie. To compare, we calculated the difference between characters using Simpson's distance. We then used multi-dimensional scaling to project the characters onto a two-dimensional space. The closer together two characters are, the more similar their speaking patterns are.</p>
+                </div>
+                <div class="col-lg-12">
+                  <center><img src="nemoCharMap.jpg"></center>
+                </div>
+                <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key Takeaways!</h4>
+                <p class="col-lg-10 col-lg-offset-2">Like the other two movies, we see that the primary factor for dividing characters involves the presence of each character--characters with prominent roles tend to cluster together while characters with only a few appearances tend to spread out in a line on the opposite side of the plot. In our main cluster to the left, we have the protagonists: Marlin, the focus of the movie; Dory, Marlin's sidekick; Nemo, the title character; and Gill, the father-figure who is the de-facto leader inside the fishtank. 
+                  <br><br>
+                  Just to the left of the main cluster, we have another smaller cluster that includes many of the fish inside of the fishtank. This makes sense because they are all experiencing the same subplot, and react accordingly to each particular situation. Additionally, they tend to talk about certain topics that wouldn't apply to the characters who are out in the open ocean. It is also mildly amusing that the three sharks in the movie (Bruce, Anchor, and Chum) are spread out just outside of this cluster, reminiscent of sharks circling their prey before they attack.</p>
+                </div>
+              </div>
+              <hr>
+
+              <div class="col-lg-12">
+                <div class="row">
+                  <h3  class="col-lg-2">The Story Arc</h3>
+                  <div class="col-lg-10">
+                    <p style="font-size:16px; ">Lastly, we utilized sentiment analysis at the word level to try and get a feel for the moving flow of emotion during the movie.  We removed stop words, stemmed words to normalize the language, and we also removed punctuation.  We ran a moving average comparing movie text against a positive and negative sentiment word list.  Lastly, we applied a smoother to create a story arc to best capture overall trends in the movie.</p>
+                  </div>
+                  <div class="col-lg-12">
+                    <center><img src="nemoSentiment.jpg"></center>
+                  </div>
+                </div>
 
 
-      </div>
-      <br>
-      <br>
-      <hr>
+              </div>
+              <br>
+              <br>
+              <hr>
 
-      <footer>
-        <p class="pull-left">All rights to original works belong to Pixar.</p>
-        <p class="pull-right">Adam Evans &middot; Joseph Riley &middot; Austin Schleder &middot; Colin Watts-Fitzgerald</p>
-      </footer>
+              <footer>
+                <p class="pull-left">All rights to original works belong to Pixar.</p>
+                <p class="pull-right">Adam Evans &middot; Joseph Riley &middot; Austin Schleder &middot; Colin Watts-Fitzgerald</p>
+              </footer>
 
-    </div> <!-- /container -->
+            </div> <!-- /container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -122,4 +122,4 @@
     <script src="data2.js"></script>
     <script src="storyboard.js"></script>
   </body>
-</html>
+  </html>

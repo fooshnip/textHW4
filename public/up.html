@@ -58,7 +58,7 @@
           <div class="row">
           <h3  class="col-lg-2">The Storyboard</h3>
           <div class="col-lg-6">
-          <p style="font-size:16px; text-indent:40px">The following graphic was created in D3 and data parsed from a raw movie script of Up!, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  It shows the actual flow of dialogue in the movie over time.  The buttons below will trigger an animation that will play through the entire script!  Mouseover the chart to see the character's quotes over time.</p>
+          <p style="font-size:16px; ">The following graphic was created in D3 and data parsed from a raw movie script of Up!, found from <a href="imsdb.com">The Internet Movie Script Database</a>.  It shows the actual flow of dialogue in the movie over time.  The buttons below will trigger an animation that will play through the entire script!  Mouseover the chart to see the character's quotes over time.</p>
         </div>
           <h3  class="col-lg-1">Say what?</h3>
           <div class="col-lg-3" id="diadiv"></div>
@@ -77,24 +77,26 @@
           <div class="row">
           <h3  class="col-lg-2">The Neighborhood Map</h3>
           <div class="col-lg-10">
-          <p style="font-size:16px; text-indent:40px">Using the raw text data as seen above, we also clustered characters based on similarity of words and language.  For comparisons, we utilized a metric called Simpson's distance to quantify the difference.  Using a technique called multi-dimensional scaling, we are able to project these distances onto a two-dimensional space.</p>
+          <p style="font-size:16px; ">Using the raw text pulled from the scripts, we clustered the characters based on the type/content of language that they used throughout the movie. To compare, we calculated the difference between characters using Simpson's distance. We then used multi-dimensional scaling to project the characters onto a two-dimensional space. The closer together two characters are, the more similar their speaking patterns are.</p>
         </div>
           <div class="col-lg-12">
-          <img src="upCharMap.jpg">
+          <center><img src="upCharMap.jpg"></center>
         </div>
-          <h4>Key Takeaways!</h4>
-          <p class="col-lg-10 col-lg-offset-2">The clustering effort in Up resulted in a more uniform distribution of distances between characters.  There seems to be more diversity.  An interesting finding from this map is the differences between Young Carl and Young Ellie (Girl's Voice) and their older selves seen in the green circle.</p>
+          <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key Takeaways!</h4>
+          <p class="col-lg-10 col-lg-offset-2">As we can see, the biggest split occurs between main characters and supporting cast. Interestingly, the main villain (Muntz) shows up in the green cluster in between the protagonists (Carl and Russel) and their closest friends (Dug and Ellie). This might be explained by the fact that Muntz is presented as a hero for the first half of the movie, and it isn't made clear until well after he's introduced that he has less-than-honorable intentions. 
+          <br><br>
+          In the red cluster, we have Young Carl and Young Ellie, as the story provides an overview of their background and life story. However, most of the story is told passively (through actions rather than words), which might explain why they don't end up as closely together as we would expect.
+          <br><br>
+          The last group of interest is the one at the top of our plot, which contains Alpha, Beta, and Gamma. These dogs are the loyal servants of Muntz, who help with the attack on Carl and Russel. Dug, Muntz's least-favorite dog who eventually defects and helps the protagonists, is in the main cluster, but we can see that he is much closer to his former companions than any of the other main characters. Dogs are named in order of importance (Alpha has the most lines, Beta has the second-most, ...), which might explain why the main dogs are clustered together, while the lesser dogs (Omega, Miscellaneous Dog) are spread out amongst the other characters with only a few lines.</p>
         </div>
       </div>
-        <br>
-        <br>
         <hr>
 
         <div class="col-lg-12">
           <div class="row">
           <h3  class="col-lg-2">The Story Arc</h3>
           <div class="col-lg-10">
-          <p style="font-size:16px; text-indent:40px">Lastly, we utilized sentiment analysis at the word level to try and get a feel for the moving flow of emotion during the movie.  We removed stop words, stemmed words to normalize the language, and we also removed punctuation.  We ran a moving average comparing movie text against a positive and negative sentiment word list.  Lastly, we applied a smoother to create a story arc to best capture overall trends in the movie.</p>
+          <p style="font-size:16px; ">Lastly, we utilized sentiment analysis at the word level to try and get a feel for the moving flow of emotion during the movie.  We removed stop words, stemmed words to normalize the language, and we also removed punctuation.  We ran a moving average comparing movie text against a positive and negative sentiment word list.  Lastly, we applied a smoother to create a story arc to best capture overall trends in the movie.</p>
         </div>
           <div class="col-lg-12">
           <center><img src="upSentiment.jpg"></center>
